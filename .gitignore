@@ -1,0 +1,5 @@
+venv/
+jjj/
+media/
+upload_files/
+db.sqlite3

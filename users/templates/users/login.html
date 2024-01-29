@@ -1,0 +1,31 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="mt-5 pt-4">{{ form|crispy }}</div>
+    
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+      
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+      
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">Log in</button>
+      
+        
+        <div class="text-center">
+          <p>Not a member? <a href="{% url 'register' %}">Sign Up</a></p>
+        </div>
+      </form>
+
+</div>
+
+
+{% endblock content%}
