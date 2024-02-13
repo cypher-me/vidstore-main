@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView, DetailView, CreateView
+from django.utils.decorators import method_decorator
+
 
 from .models import VideoItem
 
@@ -9,43 +12,33 @@ from .models import VideoItem
 
 # temp data for testing
 
-temp_data = [
-    {
-        "video_title" : "Video 1",
-        "video_description" : "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-        "video_content" : "lorem lorem lorem lorem lorem lorem ",
-        "date_posted" : "today",
-    },{
-        "video_title" : "Video 2",
-        "video_description" : "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-        "video_content" : "lorem lorem lorem lorem lorem lorem ",
-        "date_posted" : "today",
-    },
-    {
-        "video_title" : "Video 3",
-        "video_description" : "lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem ",
-        "video_content" : "lorem lorem lorem lorem lorem lorem ",
-        "date_posted" : "today",
-    },
-]
-
-
 def index(req):
 
-    context = {
-        'posts' : temp_data
-    }
-
     # return HttpResponse('home pade')
-    return render(req, 'store/index.html', context)
+    return render(req, 'store/index.html')
 
 def about(req):
 
     return render(req, 'store/about.html', {"title" : "about page"})
 
-@login_required
-def store(req):
-    videos = VideoItem.objects.all()
+# @login_required
+# def store(req):
+#     videos = VideoItem.objects.all()
 
 
-    return render(req, 'store/store.html', {"videos" : videos})
+#     return render(req, 'store/store.html', {"videos" : videos})
+# @method_decorator(login_required)
+class StoreListView(ListView):
+    model = VideoItem
+    template_name = 'store/store.html'
+    context_object_name = 'videos'
+    ordering = ['-upload_date']
+    paginate_by = 2
+
+
+class StoreDetailView(DetailView):
+    model = VideoItem
+    template_name = 'store/video_detail.html'
+
+# class StoreCreateView(CreateView):
+#     model = VideoItem
