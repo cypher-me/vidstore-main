@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView
 from django.utils.decorators import method_decorator
@@ -42,3 +42,6 @@ class StoreDetailView(DetailView):
 
 # class StoreCreateView(CreateView):
 #     model = VideoItem
+    
+
+

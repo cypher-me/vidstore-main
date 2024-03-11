@@ -14,6 +14,7 @@
                 <h5 class="card-title">{{ video.video_title }}</h5>
                 <p class="card-text">{{ video.video_description }}</p>
                 <p class="card-text">{{ video.upload_date }}</p>
+                <p class="card-text">{{ video.video_price }}</p>
                 <a href="#" class="btn btn-primary m-1">Add to Cart</a>
                 <a href="{% url 'store-detail' video.id %}" class="btn btn-primary pl-3 m-1">View</a>
             </div>

@@ -9,6 +9,7 @@ urlpatterns = [
     path('', views.index, name='store-index'),
     path('about/', views.about, name='store-about'),
     path('store/', login_required(StoreListView.as_view()), name='store-store'),
-    path('store/<int:pk>/', StoreDetailView.as_view(), name='store-detail'),
+    path('store/<int:pk>/', login_required(StoreDetailView.as_view()), name='store-detail'),
+
 ]
 

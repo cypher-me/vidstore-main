@@ -22,6 +22,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
             rel="stylesheet"
         />
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
         {% if title %}
         <title>{{ title }}</title>
@@ -33,7 +34,7 @@
 
 
         <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+<nav class="navbar navbar-expand-sm navbar-light bg-body-tertiary">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
@@ -51,12 +52,11 @@
   
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'store-index' %}">
-          <div>VidStore</div>
-        </a>
-        <!-- Left links -->
+      <!-- Left links -->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand" href="{% url 'store-index' %}">VidStore</a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'store-store' %}">Store</a>
           </li>
@@ -84,9 +84,13 @@
 
       <!-- Right elements -->
       <div class="d-flex align-items-center">
-        <a class="text-reset me-3" href="#">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
+        <form action="" class="d-flex m-2">
+          <a href="#" class="btn btn-outline-dark">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            cart
+            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+          </a>
+        </form>
 
         <div class="dropdown">
           <a
@@ -173,5 +177,6 @@
             type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
         ></script>
+        
     </body>
 </html>

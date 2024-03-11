@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from users.models import Profile
 
 # Create your models here.
 
@@ -13,6 +14,7 @@ class VideoItem(models.Model):
     video_url = models.URLField()
     video_thumbnail = models.ImageField(upload_to='upload_files/images/', validators=[
         FileExtensionValidator(allowed_extensions=['jpeg', 'png'])])
+    video_price = models.FloatField()
     upload_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
