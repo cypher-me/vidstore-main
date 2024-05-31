@@ -10,6 +10,7 @@ urlpatterns = [
     path('about/', views.about, name='store-about'),
     path('store/', login_required(StoreListView.as_view()), name='store-store'),
     path('store/<int:pk>/', login_required(StoreDetailView.as_view()), name='store-detail'),
+    path('checkout/', views.checkout, name='store-checkout'),
 
 ]
 

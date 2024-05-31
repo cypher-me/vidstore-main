@@ -5,7 +5,36 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="{% static 'store/css/main.css' %}">
+        <link rel="stylesheet" href="{% static 'store/css/main.css' %}" />
+
+        <!--  -->
+
+        <link rel="stylesheet" href="{% static 'store/assets/css/style.css' %}" />
+
+        <link href="{% static 'store/assets/vendor/aos/aos.css' %}" rel="stylesheet" />
+        <link
+            href="{% static 'store/assets/vendor/bootstrap/css/bootstrap.min.css' %}"
+            rel="stylesheet"
+        />
+        <link
+            href="{% static 'store/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}"
+            rel="stylesheet"
+        />
+        <link
+            href="{% static 'store/assets/vendor/boxicons/css/boxicons.min.css' %}"
+            rel="stylesheet"
+        />
+        <link
+            href="{% static 'store/assets/vendor/glightbox/css/glightbox.min.css' %}"
+            rel="stylesheet"
+        />
+        <link href="{% static 'store/assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet" />
+        <link
+            href="{% static 'store/assets/vendor/swiper/swiper-bundle.min.css' %}"
+            rel="stylesheet"
+        />
+
+        <!--  -->
 
         <!-- Font Awesome -->
         <link
@@ -22,7 +51,11 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
             rel="stylesheet"
         />
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"
+        ></script>
 
         {% if title %}
         <title>{{ title }}</title>
@@ -31,152 +64,158 @@
         {% endif %}
     </head>
     <body>
-
-
         <!-- Navbar -->
-<nav class="navbar navbar-expand-sm navbar-light bg-body-tertiary">
-    <!-- Container wrapper -->
-    <div class="container-fluid">
-      <!-- Toggle button -->
-      <button
-        data-mdb-collapse-init
-        class="navbar-toggler"
-        type="button"
-        data-mdb-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-  
-      <!-- Collapsible wrapper -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="navbar-brand" href="{% url 'store-index' %}">VidStore</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'store-store' %}">Store</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'store-about' %}">About Us</a>
-          </li>
-        </ul>
-        <!-- Left links -->
-      </div>
-      <!-- Collapsible wrapper -->
-  
-      {% if user.is_authenticated %}
-      <!-- <div class="d-flex align-items-center">
-          <form action="{% url 'user-logout' %}" method="post">
-            {% csrf_token %}
-
-            <button data-mdb-ripple-init type="submit" class="btn btn-link px-3 me-2">
-              Logout
-              </button>
-          </form>
-          <a href="{% url 'user-profile' %}"><button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-            Profile
-            </button></a>
-      </div> -->
-
-      <!-- Right elements -->
-      <div class="d-flex align-items-center">
-        <form action="" class="d-flex m-2">
-          <a href="#" class="btn btn-outline-dark">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            cart
-            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-          </a>
-        </form>
-
-        <div class="dropdown">
-          <a
-            data-mdb-dropdown-init
-            class="dropdown-toggle d-flex align-items-center hidden-arrow"
-            href="#"
-            id="navbarDropdownMenuAvatar"
-            role="button"
-            aria-expanded="false"
-          >
-            <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-              class="rounded-circle"
-              height="25"
-              alt="Black and White Portrait of a Man"
-              loading="lazy"
-            />
-          </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdownMenuAvatar"
-          >
-            <li>
-              <a href="{% url 'user-profile' %}" class="dropdown-item"><button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-                Profile
-                </button></a>
-            </li>
-            <li>
-              <form action="{% url 'user-logout' %}" method="post" class="dropdown-item">
-                {% csrf_token %}
-    
-                <button data-mdb-ripple-init type="submit" class="btn btn-link px-3 me-2">
-                  Logout
-                  </button>
-              </form>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <!-- Right elements -->
-
-      {% else %}
-      <!-- Alternative Right Elements -->
-
-      <div class="d-flex align-items-center">
-        <a href="{% url 'user-login' %}">
-          <button data-mdb-ripple-init type="button" class="btn btn-link px-3 me-2">
-          Login
-          </button>
-      </a>
-      <a href="{% url 'register' %}">
-        <button data-mdb-ripple-init type="button" class="btn btn-primary me-3">
-          Sign up for free
-        </button>
-      </a>
-      </div>
-
-      <!-- Alternative Right Elements -->
-      {% endif %}
-
-    </div>
-    <!-- Container wrapper -->
-  </nav>
-  <!-- Navbar -->
-
-
-        <!-- <div class="container"> -->
-          {% if messages %}
-
-              {% for message in messages %}
-
-                  <div class="alert alert-{{ messages.tags }}">
-                    {{ message }}
-                  </div>
-
-              {% endfor %}
-
-          {% endif %}
-            {% block content %} {% endblock %}
-        <!-- </div> -->
         
+        <!-- Navbar -->
+
+        <!--  -->
+        <header id="header" class="fixed-top " style="background-color: #37517e;">
+          <div class="container d-flex align-items-center">
+      
+            <h1 class="logo me-auto"><a href="{% url 'store-index' %}">VidStore</a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      
+            <nav id="navbar" class="navbar">
+              <ul>
+                <li><a class="nav-link scrollto active" href="{% url 'store-index' %}">Home</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'store-index' %}#about">About</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'store-index' %}#services">Services</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'store-index' %}#contact">Contact</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'store-store' %}">Store</a></li>
+                
+
+                {% if user.is_authenticated %}
+
+            <!-- Right elements -->
+            <div class="d-flex align-items-center">
+                <form action="" class="d-flex m-0">
+                    <a href="{% url 'store-checkout' %}" class="">
+                        <i
+                            class="fa fa-shopping-cart"
+                            aria-hidden="true"
+                        ></i>
+                        cart
+                        <span
+                            class="badge bg-dark text-white ms-1 rounded-pill"
+                            >0</span
+                        >
+                    </a>
+                </form>
+
+                <div class="dropdown">
+                    <a
+                        data-mdb-dropdown-init
+                        class="dropdown-toggle d-flex align-items-center hidden-arrow"
+                        href="#"
+                        id="navbarDropdownMenuAvatar"
+                        role="button"
+                        aria-expanded="false"
+                    >
+                        <img
+                            src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                            class="rounded-circle"
+                            height="25"
+                            alt="Black and White Portrait of a Man"
+                            loading="lazy"
+                        />
+                    </a>
+                    <ul
+                        class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuAvatar"
+                    >
+                        <li>
+                            <a
+                                href="{% url 'user-profile' %}"
+                                class="dropdown-item"
+                                ><button
+                                    data-mdb-ripple-init
+                                    type="button"
+                                    class="btn btn-link px-3 me-2"
+                                >
+                                    Profile
+                                </button></a
+                            >
+                        </li>
+                        <li>
+                            <form
+                                action="{% url 'user-logout' %}"
+                                method="post"
+                                class="dropdown-item"
+                            >
+                                {% csrf_token %}
+
+                                <button
+                                    data-mdb-ripple-init
+                                    type="submit"
+                                    class="btn btn-link px-3 me-2"
+                                >
+                                    Logout
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Right elements -->
+
+            {% else %}
+            <!-- Alternative Right Elements -->
+
+            <div class="d-flex align-items-center">
+                <a href="{% url 'user-login' %}">
+                    <button
+                        data-mdb-ripple-init
+                        type="button"
+                        class="btn btn-link btn-light px-3 me-2"
+                    >
+                        Login
+                    </button>
+                </a>
+                <a href="{% url 'register' %}">
+                    <button
+                        data-mdb-ripple-init
+                        type="button"
+                        class="btn btn-primary me-3"
+                    >
+                        Sign up for free
+                    </button>
+                </a>
+            </div>
+
+            <!-- Alternative Right Elements -->
+            {% endif %}
+
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+      
+          </div>
+        </header>
+        <!--  -->
+        <!-- <div class="container"> -->
+        {% if messages %} {% for message in messages %}
+
+        <div class="alert alert-{{ messages.tags }}">{{ message }}</div>
+
+        {% endfor %} {% endif %} {% block content %} {% endblock %}
+        <!-- </div> -->
+
         <!-- MDB -->
         <script
             type="text/javascript"
             src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
         ></script>
-        
+        <!--  -->
+        <!-- Vendor JS Files -->
+  <script src="{% static 'store/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{% static 'store/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'store/assets/js/main.js' %}"></script>
+        <!--  -->
     </body>
 </html>

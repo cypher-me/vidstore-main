@@ -21,6 +21,9 @@ def about(req):
 
     return render(req, 'store/about.html', {"title" : "about page"})
 
+def checkout(req):
+    return render(req, 'store/checkout.html')
+
 # @login_required
 # def store(req):
 #     videos = VideoItem.objects.all()
